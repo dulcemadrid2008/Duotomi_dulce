@@ -1,0 +1,409 @@
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+   
+    --color-primario: #376cad;      
+    --color-secundario: #D4AF37;    
+    --color-texto: #333333;          
+    --color-texto-suave: #666666;    
+    --color-fondo-claro: #FDFBF7;    
+    --color-fondo-alt: #F5EFEB;      
+    --color-blanco: #FFFFFF;
+    
+    
+    --fuente-titulos: 'Playfair Display', serif;
+    --fuente-cuerpo: 'Poppins', sans-serif;
+    
+    
+    --ancho-menu-lateral: 260px;
+    --transicion-suave: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    --sombra-elegante: 0 4px 20px rgba(0, 0, 0, 0.08);
+    --sombra-profunda: 0 15px 35px rgba(44, 26, 17, 0.12);
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--fuente-cuerpo);
+    line-height: 1.6;
+    color: var(--color-texto);
+    background-color: var(--color-fondo-claro);
+    display: flex;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+
+#menu-lateral {
+    width: var(--ancho-menu-lateral);
+    height: 100vh;
+    background-color: var(--color-primario);
+    padding: 40px 24px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    box-shadow: 4px 0 25px rgba(0, 0, 0, 0.15);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#menu-lateral label {
+    color: var(--color-secundario);
+    font-family: var(--fuente-titulos);
+    font-size: 2.2rem;
+    font-weight: 700;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    margin-bottom: 45px;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.container-menu {
+    width: 100%;
+}
+
+.container-menu ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.container-menu a {
+    color: var(--color-blanco);
+    text-decoration: none;
+    font-weight: 400;
+    font-size: 0.85rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    display: block;
+    padding: 12px 16px;
+    border-radius: 8px;
+    transition: var(--transicion-suave);
+}
+
+.container-menu a:hover {
+    color: var(--color-primario);
+    background-color: var(--color-secundario);
+    font-weight: 600;
+    transform: translateX(8px);
+}
+
+
+.contenido-principal {
+    margin-left: var(--ancho-menu-lateral);
+    width: calc(100% - var(--ancho-menu-lateral));
+    display: flex;
+    flex-direction: column;
+}
+
+section {
+    width: 100%;
+    min-height: 100vh;
+    padding: 120px 60px 80px 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.fondo-alterno {
+    background-color: var(--color-fondo-alt);
+}
+
+.contenido-seccion {
+    max-width: 1140px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+
+.bloque-dos-columnas {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 60px;
+    max-width: 1140px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.texto {
+    flex: 1.2;
+    text-align: left;
+}
+
+
+.sub-menu {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    background-color: rgba(253, 251, 247, 0.95); 
+    backdrop-filter: blur(8px);                 
+    border-bottom: 2px solid var(--color-secundario);
+    padding: 18px 0;
+    z-index: 900;
+    box-shadow: var(--sombra-elegante);
+}
+
+.sub-menu ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    gap: 50px;
+}
+
+.sub-menu a {
+    color: var(--color-primario);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    padding: 6px 4px;
+    position: relative;
+    transition: var(--transicion-suave);
+}
+
+
+.sub-menu a::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background-color: var(--color-secundario);
+    transition: var(--transicion-suave);
+    transform: translateX(-50%);
+}
+
+.sub-menu a:hover {
+    color: var(--color-secundario);
+}
+
+.sub-menu a:hover::after {
+    width: 100%;
+}
+
+
+
+
+h2 {
+    font-family: var(--fuente-titulos);
+    font-size: 2.8rem;
+    color: var(--color-primario);
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+
+.texto h2::after, .contenido-seccion h2::after {
+    content: '';
+    display: block;
+    width: 50px;
+    height: 3px;
+    background-color: var(--color-secundario);
+    margin-top: 12px;
+}
+
+
+#inicio h2 {
+    font-size: 4.5rem;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+#inicio h2::after {
+    margin: 15px auto 0 auto;
+}
+
+.logo-box {
+    text-align: center;
+    padding: 50px 80px;
+    border: 2px dashed var(--color-secundario);
+    background-color: rgba(212, 175, 55, 0.04);
+    border-radius: 8px;
+}
+
+.logo-box span {
+    color: var(--color-primario);
+    font-weight: 700;
+    font-size: 1.5rem;
+    letter-spacing: 6px;
+}
+
+
+p {
+    font-size: 1.05rem;
+    color: var(--color-texto-suave);
+    margin-bottom: 24px;
+    font-weight: 300;
+}
+
+.etiqueta {
+    display: inline-block;
+    background-color: var(--color-secundario);
+    color: var(--color-primario);
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    padding: 6px 14px;
+    border-radius: 4px;
+    letter-spacing: 1.5px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 5px rgba(212, 175, 55, 0.2);
+}
+
+
+.menu-botones {
+    display: flex;
+    gap: 24px;
+    margin-top: 40px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.btn-enlace {
+    text-decoration: none;
+    color: var(--color-blanco);
+    background-color: var(--color-primario);
+    padding: 14px 32px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    letter-spacing: 1px;
+    transition: var(--transicion-suave);
+    box-shadow: var(--sombra-elegante);
+}
+
+.btn-enlace:hover {
+    background-color: var(--color-secundario);
+    color: var(--color-primario);
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(44, 26, 17, 0.2);
+}
+
+
+.imagen {
+    flex: 0.8;
+    width: 100%;
+    max-width: 480px;
+    height: 380px;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: var(--sombra-profunda);
+    transition: var(--transicion-suave);
+    background-color: #EFEFEF;
+}
+
+.imagen:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 25px 50px rgba(44, 26, 17, 0.18);
+}
+
+.imagen img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+
+@media (max-width: 1024px) {
+    section {
+        padding: 100px 30px 60px 30px;
+    }
+    .bloque-dos-columnas {
+        gap: 40px;
+    }
+    h2 {
+        font-size: 2.3rem;
+    }
+}
+
+@media (max-width: 900px) {
+    body {
+        flex-direction: column;
+    }
+
+   
+    #menu-lateral {
+        position: relative;
+        width: 100%;
+        height: auto;
+        padding: 20px;
+    }
+    #menu-lateral label {
+        margin-bottom: 15px;
+        font-size: 1.8rem;
+    }
+    .container-menu ul {
+        flex-direction: row;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+    .container-menu a {
+        padding: 8px 12px;
+    }
+    .container-menu a:hover {
+        transform: none;
+    }
+
+    
+    .contenido-principal {
+        margin-left: 0;
+        width: 100%;
+    }
+
+    
+    .bloque-dos-columnas {
+        flex-direction: column;
+        text-align: center;
+    }
+    .texto {
+        text-align: center;
+    }
+    .texto h2::after {
+        margin: 12px auto 0 auto;
+    }
+    .imagen {
+        max-width: 100%;
+        height: 320px;
+    }
+    
+    
+    .sub-menu {
+        position: sticky;
+        top: 0;
+    }
+    .sub-menu ul {
+        gap: 25px;
+    }
+}
+
+@media (max-width: 480px) {
+    #inicio h2 {
+        font-size: 2.8rem;
+    }
+    .sub-menu ul {
+        gap: 15px;
+    }
+    .sub-menu a {
+        font-size: 0.8rem;
+        letter-spacing: 1px;
+    }
+}
+#lugares .menu-botones img {
+    order: 1; /* Mueve la imagen al final del contenedor */
+}
